@@ -4,7 +4,18 @@
   "description": "A minimal Electron application",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "pack": "build --dir"
+  },
+  "build": {
+    "appId": "electron-quick-start",
+    "files": [
+      "index.html",
+      "main.js",
+      "renderer.js",
+      "node_modules/**/*",
+      "package.json"
+    ]
   },
   "repository": "https://github.com/electron/electron-quick-start",
   "keywords": [
@@ -17,6 +28,10 @@
   "author": "GitHub",
   "license": "CC0-1.0",
   "devDependencies": {
-    "electron": "~1.6.2"
+    "electron": "1.7.2",
+    "electron-builder": "18.2.0"
+  },
+  "dependencies": {
+    "electron-log": "^2.2.6"
   }
 }

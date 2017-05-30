@@ -6,6 +6,9 @@ const BrowserWindow = electron.BrowserWindow
 
 const path = require('path')
 const url = require('url')
+const log = require('electron-log');
+
+log.transports.file.level = 'info';
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -38,7 +41,7 @@ function createWindow () {
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 app.on('ready', function() {
-  console.log('ready triggered');
+  log.info('ready triggered');
   createWindow();
 })
 
@@ -60,15 +63,15 @@ app.on('activate', function () {
 })
 
 app.on('before-quit', function() {
-  console.log('before-quit triggered');
+  log.info('before-quit triggered');
 });
 
 app.on('will-quit', function() {
-  console.log('will-quit triggered');
+  log.info('will-quit triggered');
 });
 
 app.on('quit', function() {
-  console.log('quit triggered');
+  log.info('quit triggered');
 });
 
 // In this file you can include the rest of your app's specific main process
